@@ -68,6 +68,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
             padding: 20px;
         }
 
+        .back-button {
+            margin-bottom: 20px;
+            display: inline-block;
+            background-color: darkred;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: red;
+        }
+
         .post-box {
             background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
@@ -196,7 +216,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
     </style>
 </head>
 <body>
+    <!-- Botão Voltar -->
+    <a href="menu.php" class="back-button">Voltar</a>
     <div class="container">
+
         <!-- Caixa de postagem -->
         <div class="post-box">
             <form action="" method="POST" enctype="multipart/form-data">
@@ -274,4 +297,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
     </script>
 </body>
 </html>
-
