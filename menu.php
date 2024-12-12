@@ -15,7 +15,6 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['tipo_usuario'])) {
     exit();
 }
 
-
 // Recuperar dados do usuário da sessão
 $email = $_SESSION['email'];
 $tipo_usuario = $_SESSION['tipo_usuario']; // 'usuario' ou 'artista'
@@ -116,29 +115,26 @@ if ($result && $result->num_rows > 0) {
         }
 
         /* Estilo do botão "Sair" */
-        .logout-btn {
+        .btnVoltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
             background-color: darkred;
             color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            transition: background-color 0.3s;
-            z-index: 10;
-            text-decoration: none; 
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
         }
-
-        .logout-btn:hover {
-        background-color: red;
-    }
+        .btnVoltar:hover {
+            background-color: crimson;
+        }
     </style>
 </head>
 <body>
     <!-- Botão de logout -->
-    <a href="?logout=true" class="logout-btn">Sair</a>
+    <a href="?logout=true" class="btnVoltar">Sair</a>
 
     <div class="menu-container">
         <!-- Exibir a foto de perfil do usuário -->
@@ -158,11 +154,18 @@ if ($result && $result->num_rows > 0) {
                 <i class="fas fa-home"></i>
                 <div class="menu-icon-label">Feed</div>
             </div>
-            
-            <div class="menu-icon" onclick="window.location.href='criar_evento.php'">
-                <i class="fas fa-ticket-alt"></i>
-                <div class="menu-icon-label">Criar evento</div>
-            </div>
+
+            <?php if ($tipo_usuario == 'usuario') { ?>
+                <div class="menu-icon" onclick="window.location.href='eventos_usuario.php'">
+                    <i class="fas fa-calendar"></i>
+                    <div class="menu-icon-label">Eventos</div>
+                </div>
+            <?php } else if ($tipo_usuario == 'artista') { ?>
+                <div class="menu-icon" onclick="window.location.href='criar_evento.php'">
+                    <i class="fas fa-ticket-alt"></i>
+                    <div class="menu-icon-label">Criar Evento</div>
+                </div>
+            <?php } ?>
             
             <div class="menu-icon" onclick="window.location.href='eventos.php'">
                 <i class="fas fa-compass"></i>

@@ -103,7 +103,7 @@
 <body>
     <a href="home.php" class="btnVoltar">Voltar</a>
     <div>
-        <img src="\assets\rockriderlogo.png" alt="Logo" class="responsive-image">
+        <img src="assets\rockriderlogo.png" alt="Logo" class="responsive-image">
         <h1>ROCKRIDER</h1>
         <form action="testLogin.php" method="POST">
             <input type="text" name="email" placeholder="Email" required>

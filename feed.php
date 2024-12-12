@@ -68,24 +68,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
             padding: 20px;
         }
 
-        .back-button {
-            margin-bottom: 20px;
-            display: inline-block;
+        .btnVoltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
             background-color: darkred;
             color: white;
             padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
         }
-
-        .back-button:hover {
-            background-color: red;
+        .btnVoltar:hover {
+            background-color: crimson;
         }
 
         .post-box {
@@ -217,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
 </head>
 <body>
     <!-- Botão Voltar -->
-    <a href="menu.php" class="back-button">Voltar</a>
+    <a href="menu.php" class="btnVoltar">Voltar</a>
     <div class="container">
 
         <!-- Caixa de postagem -->
